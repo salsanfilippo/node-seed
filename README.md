@@ -1,2 +1,2 @@
 # node-seed
-Seed for Nodejs
+Typescript Seed for Nodejs
