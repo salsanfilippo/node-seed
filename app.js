@@ -30,7 +30,7 @@ require('./public/js/includes/object.js');
 require('./public/js/includes/string.js');
 var eq = String.equals('foo', 'foo');
 var ne = String.equals('foo', 'bar');
-var b = String.equals('', '');
+var b = String.format('hello {0}', 'world');
 var app = express();
 var o = { foo: 'bar' };
 var hc = Object.hashCode(o);

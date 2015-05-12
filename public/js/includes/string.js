@@ -52,20 +52,12 @@ if (!String.format) {
      * @returns {String} The formatted string.
      * @example String.format('Hello, my name is {0} {1}.', 'John', 'Doe');
      */
-    String.format = function() {
-        // The string containing the format items (e.g. "{0}")
-        // will and always has to be the first argument.
-        var string = arguments[0];
+    String.format = function(format) {
+      var params = [ ];
+      for (var i = 1; i < arguments.length; i++)
+        params.push(arguments[i]);
 
-        // start with the second argument (i = 1)
-        for (var i = 1; i < arguments.length; i++) {
-            // "gm" = RegEx options for Global search (more than one instance)
-            // and for Multi-line search
-            var regEx = new RegExp("\\{" + (i - 1) + "\\}", "gm");
-            string = string.replace(regEx, arguments[i]);
-        }
-
-        return string;
+      return impl.format.apply(format, params);
     };
 }
 
@@ -80,46 +72,7 @@ if (!String.generatePassword) {
      * @returns {string} A new randomly generated password.
      */
     String.generatePassword = function (length, inclNumbers, inclSymbols) {
-        var vowels = 'aeiou'.split(String.EMPTY);
-        var constonants = 'bcdfghjklmnpqrstvwxyz'.split(String.EMPTY);
-        var symbols = '!@#$%^&*?'.split(String.EMPTY);
-        var word = String.EMPTY, i, num;
-
-        if (!length)
-            length = 8;
-
-        var inclOffset = 0;
-        if (inclNumbers)
-            inclOffset += 3;
-        if (inclSymbols)
-            inclOffset += 1;
-
-        for (i = 0; i < (length - inclOffset); i++) {
-            var letter;
-
-            if (i % 2 == 0) { // even = vowels
-                letter = vowels[Math.floor(Math.random() * 4)];
-            } else {
-                letter = constonants[Math.floor(Math.random() * 20)];
-            }
-
-            word += (i == 0) ?
-                letter.toUpperCase() :
-                letter;
-        }
-
-        if (inclNumbers) {
-            num = Math.floor(Math.random() * 99) + String.EMPTY;
-            if (num.length == 1) num = '00' + num;
-            else if (num.length == 2) num = '0' + num;
-            word += num;
-        }
-
-        if (inclSymbols) {
-            word += symbols[Math.floor(Math.random() * 8)];
-        }
-
-        return word.substr(0, length);
+      return impl.generatePassword(length, inclNumbers, inclSymbols);
     };
 }
 
@@ -434,7 +387,7 @@ if (!String.prototype.clone) {
      * @example var newString = 'Hello World'.clone();
      */
     String.prototype.clone = function () {
-        return Object.extensions.clone(this);
+        return impl.clone(this);
     };
 }
 
@@ -486,7 +439,7 @@ if (!String.prototype.hashCode) {
      * @example 'Hello World'.hashCode();
      */
     String.prototype.hashCode = function () {
-        return Object.extensions.hashCode(this);
+        return impl.hashCode(this);
     };
 }
 
