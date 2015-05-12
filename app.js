@@ -9,20 +9,31 @@
 /// <reference path="./typings/mongoose/mongoose.d.ts" />
 /// <reference path="./typings/nodemailer/nodemailer.d.ts" />
 /// <reference path="./typings/winston/winston.d.ts" />
+/// <reference path="./lib-ext.d.ts" />
 /// <reference path="./typings/json-fn/json-fn.d.ts" />
+var extensions = {
+    object: require('./public/js/includes/object'),
+    string: require('./public/js/includes/string')
+};
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var path = require('path');
-var jsonfn = require('json-fn');
-var me = jsonfn.clone({ name: "Sal Sanfilippo" });
 var applicationRoot = __dirname;
 var multipart = require('connect-multiparty');
 var recaptcha = require('recaptcha').Recaptcha;
 var favicon = require('serve-favicon');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+// Include these files
+require('./public/js/includes/object.js');
+require('./public/js/includes/string.js');
+var eq = String.equals('foo', 'foo');
+var ne = String.equals('foo', 'bar');
+var b = String.equals('', '');
 var app = express();
+var o = { foo: 'bar' };
+var hc = Object.hashCode(o);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
