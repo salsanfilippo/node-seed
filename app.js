@@ -9,7 +9,7 @@
 /// <reference path="./typings/mongoose/mongoose.d.ts" />
 /// <reference path="./typings/nodemailer/nodemailer.d.ts" />
 /// <reference path="./typings/winston/winston.d.ts" />
-/// <reference path="./lib-ext.d.ts" />
+/// <reference path="./typings/lib-ext/lib-ext.d.ts" />
 /// <reference path="./typings/json-fn/json-fn.d.ts" />
 var extensions = {
     object: require('./public/js/includes/object'),
@@ -31,6 +31,16 @@ require('./public/js/includes/string.js');
 var eq = String.equals('foo', 'foo');
 var ne = String.equals('foo', 'bar');
 var b = String.format('hello {0}', 'world');
+var c = 'Hello {0} - {1}'.format('Monique', 10);
+var d = String.sprintf('Hello %s - %d', 'world', 99);
+var e = 'Hello %s - %d'.sprintf('Sal', 88);
+String.print('hello {0}', 'world');
+'Hello {0} - {1}'.print('Monique', 10);
+String.printf('Hello %s - %d', 'world', 99);
+'Hello %s - %d'.printf('Sal', 88);
+'FuzzyL0gic!'.md5().print();
+eq = 'foo'.equals('foo');
+ne = 'foo'.equals('bar');
 var app = express();
 var o = { foo: 'bar' };
 var hc = Object.hashCode(o);
