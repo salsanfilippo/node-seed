@@ -1,12 +1,7 @@
-import sm = require('../serializable');
+var global = typeof window !== 'undefined' ? window : eval('root');
+import serialize = require('../serializable');
 
-var ISerializable = sm.serialize.ISerializable;
-var Serializable = sm.serialize.Serializable;
-
-var ISerializerHelper = sm.serialize.ISerializerHelper;
-var Serializer = sm.serialize.Serializer;
-
-class User extends Serializable {
+export class User extends serialize.Serializable {
   name:string;
   surname:string;
   street:string;
@@ -14,43 +9,29 @@ class User extends Serializable {
   birthDate:Date;
 }
 
-class UserSerializer implements ISerializerHelper {
+export class UserSerializer implements serialize.ISerializerHelper {
   "@serializer":string = null;
   birthDate:Date = null;
-  name:string  = null;
-  surname:string  = null;
-  street:string  = null;
-  number:number  = null;
+  name:string = null;
+  surname:string = null;
+  street:string = null;
+  number:number = null;
+
   set_birthDate(date:Date):string {
-    return [ date.getFullYear(), date.getMonth()+1, date.getDate()].join('/');
+    return [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('/');
   }
+
   get_birthDate(dateString:string):Date {
     var dateParts:string[] = dateString.split('/');
     var date = new Date();
-    date.setFullYear(parseInt(dateParts[0],10));
-    date.setMonth(parseInt(dateParts[1],10)-1);
-    date.setDate(parseInt(dateParts[2],10));
+    date.setFullYear(parseInt(dateParts[0], 10));
+    date.setMonth(parseInt(dateParts[1], 10) - 1);
+    date.setDate(parseInt(dateParts[2], 10));
     return date;
   }
 }
 
-// Registration
-Serializer.registerClass(() => { return User },UserSerializer);
-
-// Creane new user instance and populate it with some values
-var sourceInstance:User = new User();
-sourceInstance.name = "John";
-sourceInstance.surname = "Smith";
-sourceInstance.street = "Some Street Address";
-sourceInstance.number = 67;
-sourceInstance.birthDate = new Date();
-
-// Serialize it and store it somewhere  
-var serializedObject:ISerializable = sourceInstance.serialize();
-console.log(serializedObject)
-
-// later to recompose it from data saved to disk
-var cloneUserInstance:User = new User();
-cloneUserInstance.deserialize(serializedObject);
-
-console.log(sourceInstance, cloneUserInstance)
+global.User = User;
+serialize.Serializer.registerClass(() => {
+                                           return User
+                                         }, UserSerializer);
