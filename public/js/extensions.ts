@@ -110,10 +110,7 @@ export class StringImpl {
    * @example var isEqual = String.equals('string', 'string');
    */
   static equals(str: string, other: string): boolean {
-    if (ObjectImpl.isNullOrUndefined(other))
-      return false;
-
-    return str == other;
+    return ObjectImpl.equals(str, other);
   }
 
   /**
@@ -435,7 +432,7 @@ export class StringImpl {
 
     var newString = StringImpl.EMPTY;
     var start = 0;
-    // Generate our new formated string
+    // Generate our new formatted string
     for(var i=0; i<parts.length; ++i) {
       // Add first unformated string part
       newString += format.substring(start, parts[i].begin);
@@ -545,7 +542,7 @@ export class StringImpl {
    */
   static toBoolean(str:string):boolean {
     return (str.toLowerCase() === "true") ||
-            (str.toLowerCase() === "yes");
+           (str.toLowerCase() === "yes");
   }
 
   /**
@@ -564,7 +561,7 @@ export class StringImpl {
     // ? is to take care of preceding token
     // match nov(ember)? matches nov and november
     var result = this.replace(/[-_ .]+(.)?/g,
-                               function (match, p) {
+                               (match, p) => {
                                  if (p) {
                                    return p.toUpperCase();
                                  }
@@ -585,7 +582,7 @@ export class StringImpl {
     var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|is|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
 
     return str.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g,
-                        function(match, index, title) {
+                        (match, index, title) => {
                           if (index > 0 && index + match.length !== title.length &&
                               match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
                               (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&

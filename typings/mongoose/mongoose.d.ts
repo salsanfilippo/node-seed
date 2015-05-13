@@ -79,7 +79,7 @@ declare module "mongoose" {
   }
   export module Types {
     export class ObjectId {
-        toHexString(): string;
+      toHexString(): string;
     }
   }
 
@@ -452,4 +452,3 @@ declare module "mongoose" {
   }
 
 }
-

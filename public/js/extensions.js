@@ -92,9 +92,7 @@ var StringImpl = (function () {
      * @example var isEqual = String.equals('string', 'string');
      */
     StringImpl.equals = function (str, other) {
-        if (ObjectImpl.isNullOrUndefined(other))
-            return false;
-        return str == other;
+        return ObjectImpl.equals(str, other);
     };
     /**
      * @description Formats a string using numbered tokens e.g. 'Format string {0}, {1}, {2}'.
