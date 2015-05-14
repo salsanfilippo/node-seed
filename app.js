@@ -34,6 +34,7 @@ app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(path.join(applicationRoot, 'public')));
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+app.use(favicon(__dirname + '/public/img/favicon.png'));
 app.all('/*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Auth-Token');
