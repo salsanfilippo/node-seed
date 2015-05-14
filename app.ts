@@ -48,9 +48,10 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'))
-app.use(express.static(path.join(applicationRoot, 'public')));
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
-app.use(favicon(__dirname + '/public/img/favicon.png'));
+
+app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
+app.use(express.static('%s/public'.sprintf(applicationRoot)));
 
 app.all('/*',
         (req, res, next) => {
@@ -65,7 +66,7 @@ app.all('/*',
 
 app.get('/api',
         (req, res) => {
-          res.sendFile(path.join(applicationRoot, 'public', 'views', 'api.html'));
+          res.sendFile('%s/public/views/api.html'.sprintf(applicationRoot));
         });
 
 app.get('/',
@@ -75,7 +76,7 @@ app.get('/',
 
 app.use((req, res) => {
           // Use response.sendfile, as it streams instead of reading the file into memory.
-          res.sendFile('%s/public/index.html'.sprintf(__dirname));
+          res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
         });
 
 app.use('/', routes);
