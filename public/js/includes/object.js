@@ -1,6 +1,6 @@
 'use strict'
 
-var impl = require('./../extensions').ObjectImpl;
+var impl = require('./../extensions/extensions').ObjectImpl;
 
 /**
  * @description Makes a deep copy of an object

@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e44cb8b2-9960-4039-a62c-4ca0e531d626" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/services/AuthService.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/services/AuthService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/services/AuthService.ts" />
+      <change type="MOVED" beforePath="C:\dev\typescript\node-seed\public\js\extensions.js" afterPath="$PROJECT_DIR$/public/js/extensions/extensions.js" />
+      <change type="MOVED" beforePath="C:\dev\typescript\node-seed\public\js\extensions.js.map" afterPath="$PROJECT_DIR$/public/js/extensions/extensions.js.map" />
+      <change type="MOVED" beforePath="C:\dev\typescript\node-seed\public\js\extensions.ts" afterPath="$PROJECT_DIR$/public/js/extensions/extensions.ts" />
+      <change type="MOVED" beforePath="C:\dev\typescript\node-seed\public\js\md5.js" afterPath="$PROJECT_DIR$/public/js/extensions/md5.js" />
+      <change type="MOVED" beforePath="C:\dev\typescript\node-seed\public\js\md5.js.map" afterPath="$PROJECT_DIR$/public/js/extensions/md5.js.map" />
+      <change type="MOVED" beforePath="C:\dev\typescript\node-seed\public\js\md5.ts" afterPath="$PROJECT_DIR$/public/js/extensions/md5.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/includes/object.js" afterPath="$PROJECT_DIR$/public/js/includes/object.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/includes/string.js" afterPath="$PROJECT_DIR$/public/js/includes/string.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="node-seed.iws" />
@@ -26,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.38691324">
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -38,11 +43,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthService.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AuthService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/services/AuthService.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="md5.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/extensions/md5.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -61,32 +76,60 @@
         </entry>
       </file>
       <file leaf-file-name="extensions.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/extensions.ts">
+        <entry file="file://$PROJECT_DIR$/public/js/extensions/extensions.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="2" selection-start-line="113" selection-start-column="2" selection-end-line="113" selection-end-column="2" />
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc;n#clone#0;n#ObjectImpl#0" expanded="false" />
+                <element signature="n#!!block;n#clone#0;n#ObjectImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#equals#0;n#ObjectImpl#0" expanded="false" />
+                <element signature="n#!!block;n#equals#0;n#ObjectImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
+                <element signature="n#!!block;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
-                <element signature="e#2183#2290#0" expanded="false" />
+                <element signature="n#!!block;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
+                <element signature="e#2186#2293#0" expanded="false" />
                 <element signature="n#!!doc;n#clone#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#clone#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#equals#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#equals#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#format#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#format#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#generatePassword#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#generatePassword#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#hashCode#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#hashCode#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#isNullOrEmpty#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#ltrim#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#ltrim#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!doc;n#md5#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#md5#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#print#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!block;n#print#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#printf#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#printf#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#rtrim#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#rtrim#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#sprintf#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#sprintf#0;n#StringImpl#0" expanded="false" />
                 <element signature="n#!!doc;n#toBoolean#0;n#StringImpl#0" expanded="false" />
-                <element signature="e#19860#20268#0" expanded="false" />
+                <element signature="n#!!block;n#toBoolean#0;n#StringImpl#0" expanded="false" />
+                <element signature="e#19863#20271#0" expanded="false" />
+                <element signature="e#20323#20936#0" expanded="false" />
                 <element signature="n#!!doc;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
+                <element signature="n#!!block;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="object.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/includes/object.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,17 +138,7 @@
         <entry file="file://$PROJECT_DIR$/public/js/includes/string.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IUser.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/model/IUser.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -136,16 +169,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cat.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/model/Cat.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="6" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -190,10 +213,7 @@
         <option value="$PROJECT_DIR$/public/js/object.js" />
         <option value="$PROJECT_DIR$/public/js/string.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/public/js/includes/object.js" />
         <option value="$PROJECT_DIR$/public/js/extensions.js" />
-        <option value="$PROJECT_DIR$/public/js/md5.ts" />
-        <option value="$PROJECT_DIR$/public/js/includes/string.js" />
         <option value="$PROJECT_DIR$/lib-ext.d.ts" />
         <option value="$PROJECT_DIR$/iserializable.ts" />
         <option value="$PROJECT_DIR$/serializable.js" />
@@ -202,7 +222,6 @@
         <option value="$PROJECT_DIR$/typings/mongoose/mongoose.d.ts" />
         <option value="$PROJECT_DIR$/tmp/tsreq/extensions-test.js" />
         <option value="$PROJECT_DIR$/tests/model/User.ts" />
-        <option value="$PROJECT_DIR$/public/js/extensions.ts" />
         <option value="$PROJECT_DIR$/tests/model/IUser.ts" />
         <option value="$PROJECT_DIR$/tests/model/ICat.ts" />
         <option value="$PROJECT_DIR$/tests/model/Cat.ts" />
@@ -212,6 +231,11 @@
         <option value="$PROJECT_DIR$/public/views/api.html" />
         <option value="$PROJECT_DIR$/app.ts" />
         <option value="$PROJECT_DIR$/public/js/services/AuthService.ts" />
+        <option value="$PROJECT_DIR$/public/js/md5.ts" />
+        <option value="$PROJECT_DIR$/public/js/extensions.ts" />
+        <option value="$PROJECT_DIR$/public/js/extensions/extensions.ts" />
+        <option value="$PROJECT_DIR$/public/js/includes/object.js" />
+        <option value="$PROJECT_DIR$/public/js/includes/string.js" />
       </list>
     </option>
   </component>
@@ -420,6 +444,10 @@
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -439,7 +467,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-seed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-seed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-seed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node-seed" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,6 +561,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\typescript\node-seed\public\js\extensions" />
       <recent name="C:\dev\typescript\node-seed\typings\lib-ext" />
       <recent name="C:\dev\typescript\node-seed\public\js\includes" />
     </key>
@@ -640,7 +709,13 @@
       <option name="project" value="LOCAL" />
       <updated>1431633662751</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added first service">
+      <created>1431634030468</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1431634030468</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -692,7 +767,8 @@
     <MESSAGE value="latest" />
     <MESSAGE value="Swapped out node_modules" />
     <MESSAGE value="removed unnecessary node_modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unnecessary node_modules" />
+    <MESSAGE value="Added first service" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added first service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -708,7 +784,7 @@
           <option name="timeStamp" value="138" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="139" />
+      <option name="time" value="140" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="mocha-javascript-test-runner">
@@ -781,34 +857,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/extensions.ts">
+    <entry file="file://$PROJECT_DIR$/public/js/extensions/extensions.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc;n#clone#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#clone#0;n#ObjectImpl#0" expanded="false" />
             <element signature="n#!!doc;n#equals#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#equals#0;n#ObjectImpl#0" expanded="false" />
             <element signature="n#!!doc;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
             <element signature="n#!!doc;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
-            <element signature="e#2183#2290#0" expanded="false" />
+            <element signature="n#!!block;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="e#2186#2293#0" expanded="false" />
             <element signature="n#!!doc;n#clone#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#clone#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#equals#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#equals#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#format#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#format#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#generatePassword#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#generatePassword#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#hashCode#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#isNullOrEmpty#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#ltrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#ltrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#md5#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#md5#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#print#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!block;n#print#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#printf#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#printf#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#rtrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#rtrim#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#sprintf#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#sprintf#0;n#StringImpl#0" expanded="false" />
             <element signature="n#!!doc;n#toBoolean#0;n#StringImpl#0" expanded="false" />
-            <element signature="e#19860#20268#0" expanded="false" />
+            <element signature="n#!!block;n#toBoolean#0;n#StringImpl#0" expanded="false" />
+            <element signature="e#19863#20271#0" expanded="false" />
+            <element signature="e#20323#20936#0" expanded="false" />
             <element signature="n#!!doc;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -931,7 +1026,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/extensions.js">
+    <entry file="file://$PROJECT_DIR$/public/js/extensions/extensions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="251" column="13" selection-start-line="251" selection-start-column="13" selection-end-line="251" selection-end-column="13" />
@@ -939,7 +1034,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/md5.js">
+    <entry file="file://$PROJECT_DIR$/public/js/extensions/md5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
@@ -964,13 +1059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.8629032">
           <caret line="77" column="15" selection-start-line="77" selection-start-column="15" selection-end-line="77" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/includes/object.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1025,13 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="4001" column="10" selection-start-line="4001" selection-start-column="10" selection-end-line="4001" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/md5.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.877551">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1092,43 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/extensions.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="2" selection-start-line="113" selection-start-column="2" selection-end-line="113" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc;n#clone#0;n#ObjectImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#equals#0;n#ObjectImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
-            <element signature="e#2183#2290#0" expanded="false" />
-            <element signature="n#!!doc;n#clone#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#equals#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#format#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#generatePassword#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#hashCode#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#isNullOrEmpty#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#ltrim#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#print#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!block;n#print#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#printf#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#rtrim#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#sprintf#0;n#StringImpl#0" expanded="false" />
-            <element signature="n#!!doc;n#toBoolean#0;n#StringImpl#0" expanded="false" />
-            <element signature="e#19860#20268#0" expanded="false" />
-            <element signature="n#!!doc;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/includes/string.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/User.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1158,21 +1202,92 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/services/AuthService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/extensions/md5.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/extensions/extensions.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#clone#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#clone#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#equals#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#equals#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="n#!!block;n#isNullOrUndefined#0;n#ObjectImpl#0" expanded="false" />
+            <element signature="e#2186#2293#0" expanded="false" />
+            <element signature="n#!!doc;n#clone#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#clone#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#equals#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#equals#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#format#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#format#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#generatePassword#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#generatePassword#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#hashCode#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#hashCode#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#isNullOrEmpty#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#ltrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#ltrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#md5#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#md5#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#print#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#print#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#printf#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#printf#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#rtrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#rtrim#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#sprintf#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#sprintf#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!doc;n#toBoolean#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#toBoolean#0;n#StringImpl#0" expanded="false" />
+            <element signature="e#19863#20271#0" expanded="false" />
+            <element signature="e#20323#20936#0" expanded="false" />
+            <element signature="n#!!doc;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
+            <element signature="n#!!block;n#toTitleCase#0;n#StringImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/includes/object.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/includes/string.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.38691324">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

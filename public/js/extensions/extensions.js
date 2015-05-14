@@ -1,8 +1,8 @@
-/// <reference path="../../typings/json-fn/json-fn.d.ts" />
+/// <reference path="../../../typings/json-fn/json-fn.d.ts" />
 var jsonfn = require('json-fn');
-var MD5 = require('./md5');
+var md5 = require('./md5');
 // Alias Imports
-var md5 = MD5.md5;
+var MD5 = md5.MD5;
 var ObjectImpl = (function () {
     function ObjectImpl() {
     }
@@ -205,7 +205,7 @@ var StringImpl = (function () {
      * @example 'password'.md5();
      */
     StringImpl.md5 = function (str) {
-        return md5.computeDigest(str);
+        return MD5.computeDigest(str);
     };
     /**
      * @description Prints a formatted string.

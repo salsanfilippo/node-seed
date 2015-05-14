@@ -1,12 +1,12 @@
-var md5;
-(function (md5) {
+var MD5;
+(function (MD5) {
     /**
-     * @description Computes a MD5 message digest for the current string instance.
-     * @method md5
-     * @memberof String.prototype
-     * @param str {String} The string to encode.
-     * @returns {String} The MD5 message digest for the current string instance.
-     * @example 'password'.md5();
+     * @description Computes a MD5 message digest for the string instance.
+     * @method computeDigest
+     * @memberof MD5
+     * @param str {String} The string instance to encode.
+     * @returns {String} The MD5 message digest for the string instance.
+     * @example 'password'.computeDigest();
      */
     function computeDigest(str) {
         var x = new Array();
@@ -98,7 +98,7 @@ var md5;
         var temp = wordToHex(a) + wordToHex(b) + wordToHex(c) + wordToHex(d);
         return temp.toLowerCase();
     }
-    md5.computeDigest = computeDigest;
+    MD5.computeDigest = computeDigest;
     function utf8Encode(str) {
         str = str.replace(/\r\n/g, "\n");
         var utftext = "";
@@ -119,7 +119,7 @@ var md5;
         }
         return utftext;
     }
-    md5.utf8Encode = utf8Encode;
+    MD5.utf8Encode = utf8Encode;
     function convertToWordArray(str) {
         var lWordCount;
         var lMessageLength = str.length;
@@ -204,5 +204,5 @@ var md5;
         a = addUnsigned(a, addUnsigned(addUnsigned(I(b, c, d), x), ac));
         return addUnsigned(rotateLeft(a, s), b);
     }
-})(md5 = exports.md5 || (exports.md5 = {}));
+})(MD5 = exports.MD5 || (exports.MD5 = {}));
 //# sourceMappingURL=md5.js.map

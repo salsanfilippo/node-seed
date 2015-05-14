@@ -1,6 +1,6 @@
 'use strict';
 
-var impl = require('./../extensions').StringImpl;
+var impl = require('./../extensions/extensions').StringImpl;
 
 if (!String) {
     // This will never execute. Hack to get extension method JSDoc to generate.

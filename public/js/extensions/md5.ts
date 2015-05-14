@@ -1,40 +1,39 @@
-
-export module md5 {
+export module MD5 {
   /**
-   * @description Computes a MD5 message digest for the current string instance.
-   * @method md5
-   * @memberof String.prototype
-   * @param str {String} The string to encode.
-   * @returns {String} The MD5 message digest for the current string instance.
-   * @example 'password'.md5();
+   * @description Computes a MD5 message digest for the string instance.
+   * @method computeDigest
+   * @memberof MD5
+   * @param str {String} The string instance to encode.
+   * @returns {String} The MD5 message digest for the string instance.
+   * @example 'password'.computeDigest();
    */
   export function computeDigest(str:string):string {
     var x = new Array();
     var AA:number,
-      BB:number,
-      CC:number,
-      DD:number,
-      a:number,
-      b:number,
-      c:number,
-      d:number,
-      k:number;
+        BB:number,
+        CC:number,
+        DD:number,
+        a:number,
+        b:number,
+        c:number,
+        d:number,
+        k:number;
     var S11 = 7,
-      S12 = 12,
-      S13 = 17,
-      S14 = 22;
+        S12 = 12,
+        S13 = 17,
+        S14 = 22;
     var S21 = 5,
-      S22 = 9,
-      S23 = 14,
-      S24 = 20;
+        S22 = 9,
+        S23 = 14,
+        S24 = 20;
     var S31 = 4,
-      S32 = 11,
-      S33 = 16,
-      S34 = 23;
+        S32 = 11,
+        S33 = 16,
+        S34 = 23;
     var S41 = 6,
-      S42 = 10,
-      S43 = 15,
-      S44 = 21;
+        S42 = 10,
+        S43 = 15,
+        S44 = 21;
 
     var utf8 = utf8Encode(str);
 
@@ -114,13 +113,17 @@ export module md5 {
       d = II(d, a, b, c, x[k + 11], S42, 0xBD3AF235);
       c = II(c, d, a, b, x[k + 2], S43, 0x2AD7D2BB);
       b = II(b, c, d, a, x[k + 9], S44, 0xEB86D391);
+
       a = addUnsigned(a, AA);
       b = addUnsigned(b, BB);
       c = addUnsigned(c, CC);
       d = addUnsigned(d, DD);
     }
 
-    var temp = wordToHex(a) + wordToHex(b) + wordToHex(c) + wordToHex(d);
+    var temp = wordToHex(a) +
+               wordToHex(b) +
+               wordToHex(c) +
+               wordToHex(d);
 
     return temp.toLowerCase();
   }
@@ -158,12 +161,14 @@ export module md5 {
     var lWordArray:number[] = new Array(lNumberOfWords - 1);
     var lBytePosition = 0;
     var lByteCount = 0;
+
     while (lByteCount < lMessageLength) {
       lWordCount = (lByteCount - (lByteCount % 4)) / 4;
       lBytePosition = (lByteCount % 4) * 8;
       lWordArray[lWordCount] = (lWordArray[lWordCount] | (str.charCodeAt(lByteCount) << lBytePosition));
       lByteCount++;
     }
+
     lWordCount = (lByteCount - (lByteCount % 4)) / 4;
     lBytePosition = (lByteCount % 4) * 8;
     lWordArray[lWordCount] = lWordArray[lWordCount] | (0x80 << lBytePosition);
@@ -174,8 +179,8 @@ export module md5 {
 
   function wordToHex(lValue:number):string {
     var wordToHexValue = "",
-      wordToHexValue_temp = "",
-      lByte, lCount;
+        wordToHexValue_temp = "",
+        lByte, lCount;
     for (lCount = 0; lCount <= 3; lCount++) {
       lByte = (lValue >>> (lCount * 8)) & 255;
       wordToHexValue_temp = "0" + lByte.toString(16);
