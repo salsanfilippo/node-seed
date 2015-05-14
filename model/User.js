@@ -41,4 +41,4 @@ global.User = User;
 serialize.Serializer.registerClass(function () {
     return User;
 }, UserSerializer);
-//# sourceMappingURL=user.js.map
+//# sourceMappingURL=User.js.map

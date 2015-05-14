@@ -15,7 +15,9 @@ var userModel = require("./model/user");
 var user = new userModel.User();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var errorHandler = require('errorhandler');
 var express = require('express');
+var methodOverride = require('method-override');
 var path = require('path');
 var applicationRoot = __dirname;
 var multipart = require('connect-multiparty');
@@ -26,6 +28,31 @@ var users = require('./routes/users');
 // Include these files
 require('./public/js/includes/object.js');
 require('./public/js/includes/string.js');
+var app = express();
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(express.static(path.join(applicationRoot, 'public')));
+app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+app.all('/*', function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Auth-Token');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+    app.disable('etag');
+    next();
+});
+app.get('/api', function (req, res) {
+    res.sendFile(path.join(applicationRoot, 'public', 'views', 'api.html'));
+});
+app.get('/', function (req, res) {
+    res.redirect('index.html');
+});
+app.use(function (req, res) {
+    // Use response.sendfile, as it streams instead of reading the file into memory.
+    res.sendFile('%s/public/index.html'.sprintf(__dirname));
+});
+app.use('/', routes);
+app.use('/users', users);
 var eq = String.equals('foo', 'foo');
 var ne = String.equals('foo', 'bar');
 var b = String.format('hello {0}', 'world');
@@ -39,47 +66,7 @@ String.printf('Hello %s - %d', 'world', 99);
 'FuzzyL0gic!'.md5().print();
 eq = 'foo'.equals('foo');
 ne = 'foo'.equals('bar');
-var app = express();
 var o = { foo: 'bar' };
 var hc = Object.hashCode(o);
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-//app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
-app.use('/users', users);
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-});
-// error handlers
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
-}
-// production error handler
-// no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
 module.exports = app;
 //# sourceMappingURL=app.js.map
