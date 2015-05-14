@@ -18,7 +18,6 @@ var cookieParser = require('cookie-parser');
 var errorHandler = require('errorhandler');
 var express = require('express');
 var methodOverride = require('method-override');
-var path = require('path');
 var applicationRoot = __dirname;
 var multipart = require('connect-multiparty');
 var recaptcha = require('recaptcha').Recaptcha;
@@ -32,9 +31,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(express.static(path.join(applicationRoot, 'public')));
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
-app.use(favicon(__dirname + '/public/img/favicon.png'));
+app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
+app.use(express.static('%s/public'.sprintf(applicationRoot)));
 app.all('/*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Auth-Token');
@@ -43,14 +42,14 @@ app.all('/*', function (req, res, next) {
     next();
 });
 app.get('/api', function (req, res) {
-    res.sendFile(path.join(applicationRoot, 'public', 'views', 'api.html'));
+    res.sendFile('%s/public/views/api.html'.sprintf(applicationRoot));
 });
 app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 app.use(function (req, res) {
     // Use response.sendfile, as it streams instead of reading the file into memory.
-    res.sendFile('%s/public/index.html'.sprintf(__dirname));
+    res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
 });
 app.use('/', routes);
 app.use('/users', users);
