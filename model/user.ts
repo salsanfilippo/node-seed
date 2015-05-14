@@ -23,10 +23,12 @@ export class UserSerializer implements serialize.ISerializerHelper {
 
   get_birthDate(dateString:string):Date {
     var dateParts:string[] = dateString.split('/');
+
     var date = new Date();
     date.setFullYear(parseInt(dateParts[0], 10));
     date.setMonth(parseInt(dateParts[1], 10) - 1);
     date.setDate(parseInt(dateParts[2], 10));
+
     return date;
   }
 }

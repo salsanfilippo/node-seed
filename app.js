@@ -11,10 +11,6 @@
 /// <reference path="./typings/winston/winston.d.ts" />
 /// <reference path="./typings/lib-ext/lib-ext.d.ts" />
 /// <reference path="./typings/json-fn/json-fn.d.ts" />
-var extensions = {
-    object: require('./public/js/includes/object'),
-    string: require('./public/js/includes/string')
-};
 var userModel = require("./model/user");
 var user = new userModel.User();
 var bodyParser = require('body-parser');
