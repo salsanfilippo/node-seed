@@ -17,6 +17,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var methodOverride = require('method-override');
+var path = require('path');
 var applicationRoot = __dirname;
 var hbs = require("hbs");
 var multipart = require('connect-multiparty');
@@ -31,6 +32,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'));
+// view engine setup
+app.set('views', path.join(applicationRoot, 'views'));
+app.set('view engine', 'hbs');
 app.use(express.static('%s/public'.sprintf(applicationRoot)));
 app.all('/*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -54,6 +58,18 @@ app.use('/error', function (req, res, next) {
 app.use(function (req, res) {
     // Use response.sendfile, as it streams instead of reading the file into memory.
     res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
+});
+app.use(function (err, req, res, next) {
+    res.status(500).render('error', {
+        title: 'PacBio - Error',
+        class: 'error-body',
+        context: {
+            status: 500,
+            message: err.message,
+            error: err.stack
+        },
+        showDetails: true // app.settings.showErrorDetails
+    });
 });
 var eq = String.equals('foo', 'foo');
 var ne = String.equals('foo', 'bar');

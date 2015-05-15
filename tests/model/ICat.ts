@@ -1,6 +1,1 @@
-interface ICat {
-  name: string;
-  breed: string;
-};
-
-export = ICat;
+interface ICat {  name: string;  breed: string;};export = ICat;
