@@ -45,9 +45,10 @@ require('./public/js/includes/object.js');
 require('./public/js/includes/string.js');
 
 var app = express();
+
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(methodOverride('X-HTTP-Method-Override'))
+app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
 app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
@@ -82,8 +83,8 @@ app.use((req, res) => {
 app.use('/', routes);
 app.use('/users', users);
 
-var eq = String.equals('foo', 'foo');
-var ne = String.equals('foo', 'bar');
+var eq:boolean = String.equals('foo', 'foo');
+var ne:boolean = String.equals('foo', 'bar');
 
 var b = String.format('hello {0}', 'world');
 var c = 'Hello {0} - {1}'.format('Monique', 10);
@@ -102,5 +103,6 @@ ne = 'foo'.equals('bar');
 
 var o:Object = { foo: 'bar' };
 var hc = Object.hashCode(o);
+'Hashcode of object: %s is %d'.print(JSON.stringify(o), hc);
 
 export = app;

@@ -68,5 +68,6 @@ eq = 'foo'.equals('foo');
 ne = 'foo'.equals('bar');
 var o = { foo: 'bar' };
 var hc = Object.hashCode(o);
+'Hashcode of object: %s is %d'.print(JSON.stringify(o), hc);
 module.exports = app;
 //# sourceMappingURL=app.js.map
