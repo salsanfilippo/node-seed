@@ -19,7 +19,6 @@ var user = new userModel.User();
 import bodyParser = require('body-parser');
 import cookieParser = require('cookie-parser');
 import crypto = require('crypto');
-import errorHandler = require('errorhandler');
 import express = require('express');
 import fs = require('fs-extra');
 import logger = require('winston');
@@ -32,12 +31,13 @@ import path = require('path');
 import jsonfn = require('json-fn');
 
 var applicationRoot = __dirname;
+var hbs = require("hbs");
 var multipart = require('connect-multiparty');
 var recaptcha = require('recaptcha').Recaptcha;
 
 var favicon = require('serve-favicon');
 
-var routes = require('./routes/index');
+import routes = require('./routes/index');
 var users = require('./routes/users');
 
 // Include these files
@@ -49,9 +49,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 
-app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
 app.use(express.static('%s/public'.sprintf(applicationRoot)));
 
 app.all('/*',
@@ -65,23 +63,30 @@ app.all('/*',
           next();
         });
 
+app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
+
+app.get('/fooey',
+  (req, res) => {
+    res.redirect('index.html');
+  });
+
 app.get('/api',
         (req, res) => {
           res.sendFile('%s/public/views/api.html'.sprintf(applicationRoot));
         });
 
-app.get('/',
-        (req, res) => {
-          res.redirect('index.html');
-        });
+app.use('/', <express.RequestHandler> routes);
+
+app.use('/users', users);
+
+app.use('/error', (req, res, next) => {
+  throw new Error('Forced Error!');
+});
 
 app.use((req, res) => {
-          // Use response.sendfile, as it streams instead of reading the file into memory.
-          res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
-        });
-
-app.use('/', routes);
-app.use('/users', users);
+  // Use response.sendfile, as it streams instead of reading the file into memory.
+  res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
+});
 
 var eq:boolean = String.equals('foo', 'foo');
 var ne:boolean = String.equals('foo', 'bar');
@@ -103,6 +108,10 @@ ne = 'foo'.equals('bar');
 
 var o:Object = { foo: 'bar' };
 var hc = Object.hashCode(o);
-'Hashcode of object: %s is %d'.print(JSON.stringify(o), hc);
+'Hashcode of object: {0} is {1}'.print(JSON.stringify(o), hc);
 
 export = app;
+
+function errorNotification(err, str, req) {
+  console.log(str);
+}

@@ -15,10 +15,10 @@ var userModel = require("./model/user");
 var user = new userModel.User();
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var errorHandler = require('errorhandler');
 var express = require('express');
 var methodOverride = require('method-override');
 var applicationRoot = __dirname;
+var hbs = require("hbs");
 var multipart = require('connect-multiparty');
 var recaptcha = require('recaptcha').Recaptcha;
 var favicon = require('serve-favicon');
@@ -31,8 +31,6 @@ var app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(methodOverride('X-HTTP-Method-Override'));
-app.use(errorHandler({ dumpExceptions: true, showStack: true }));
-app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
 app.use(express.static('%s/public'.sprintf(applicationRoot)));
 app.all('/*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -41,18 +39,22 @@ app.all('/*', function (req, res, next) {
     app.disable('etag');
     next();
 });
+app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
+app.get('/fooey', function (req, res) {
+    res.redirect('index.html');
+});
 app.get('/api', function (req, res) {
     res.sendFile('%s/public/views/api.html'.sprintf(applicationRoot));
 });
-app.get('/', function (req, res) {
-    res.redirect('index.html');
+app.use('/', routes);
+app.use('/users', users);
+app.use('/error', function (req, res, next) {
+    throw new Error('Forced Error!');
 });
 app.use(function (req, res) {
     // Use response.sendfile, as it streams instead of reading the file into memory.
     res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
 });
-app.use('/', routes);
-app.use('/users', users);
 var eq = String.equals('foo', 'foo');
 var ne = String.equals('foo', 'bar');
 var b = String.format('hello {0}', 'world');
@@ -68,6 +70,9 @@ eq = 'foo'.equals('foo');
 ne = 'foo'.equals('bar');
 var o = { foo: 'bar' };
 var hc = Object.hashCode(o);
-'Hashcode of object: %s is %d'.print(JSON.stringify(o), hc);
+'Hashcode of object: {0} is {1}'.print(JSON.stringify(o), hc);
+function errorNotification(err, str, req) {
+    console.log(str);
+}
 module.exports = app;
 //# sourceMappingURL=app.js.map
