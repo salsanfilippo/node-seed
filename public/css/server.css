@@ -14,8 +14,8 @@ body {
 .error-body {
     margin: 0px;
     padding: 0px;
-    background-color: black /* #2F2F2F */;
-    background-image: url('/img/hal-console-lg.png');
+    background-color: black;
+    background-image: url('/img/hal-console.png');
     background-repeat: no-repeat;
     background-size: 85%;
     background-position: center;
@@ -26,6 +26,7 @@ body {
     top: 50%;
     left: 50%;
     /* bring your own prefixes */
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 .error-panel {
@@ -34,7 +35,9 @@ body {
     border-radius: 6px;
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
     background-color: rgba(255, 255, 255, .7);
-    color: black /* #08f927 */;
+    color: black;
+    -webkit-border-radius: 6px;
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
 }
 
 .error-panel>h1 {
@@ -44,4 +47,25 @@ body {
 .error-panel>pre {
     background-color: transparent;
     font-size: 8pt;
+}
+
+.hal {
+    font-family: 'Microgramma', sans-serif;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Microgramma';
+    font-style: normal;
+    font-weight: 400;
+    src: local('microgramma'), url(microgramma-dmed-ext.woff) format('woff');
+    unicode-range: U+0021-00FF;
+}
+
+@font-face {
+    font-family: 'Microgramma';
+    font-style: normal;
+    font-weight: 700;
+    src: local('microgramma'), url(microgramma-dbol-ext.woff) format('woff');
+    unicode-range: U+0021-00FF;
 }

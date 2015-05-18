@@ -19,10 +19,11 @@ var express = require('express');
 var methodOverride = require('method-override');
 var path = require('path');
 var applicationRoot = __dirname;
+var favicon = require('serve-favicon');
 var hbs = require("hbs");
 var multipart = require('connect-multiparty');
 var recaptcha = require('recaptcha').Recaptcha;
-var favicon = require('serve-favicon');
+var error = require('./error');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 // Include these files
@@ -52,23 +53,44 @@ app.get('/api', function (req, res) {
 });
 app.use('/', routes);
 app.use('/users', users);
-app.use('/error', function (req, res, next) {
-    throw new Error('Forced Error!');
+app.use('/error/:id', function (req, res, next) {
+    var id = parseInt(req.params.id);
+    switch (id) {
+        case 400:
+            throw new error.BadRequestError();
+        case 401:
+            throw new error.UnauthorizedError();
+        case 403:
+            throw new error.ForbiddenError();
+        case 404:
+            throw new error.PageNotFoundError();
+        case 500, isNaN(id) ? 500 : 0:
+            throw new error.InternalServerErrorError();
+        case 501:
+            throw new error.NotImplementedError();
+        case 503:
+            throw new error.ServiceUnavailableError();
+        default:
+            throw new error.ServerError(406, 'Not Acceptable', 'The resource identified by the request is not acceptable.');
+    }
 });
 app.use(function (req, res) {
     // Use response.sendfile, as it streams instead of reading the file into memory.
     res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
 });
 app.use(function (err, req, res, next) {
-    res.status(500).render('error', {
+    var context;
+    if (err instanceof error.ServerError) {
+        context = { status: err.getStatus(), message: err.getMessage(), error: err.getStacktrace() };
+    }
+    else {
+        context = { status: err.code, message: err.message, error: err.stack };
+    }
+    res.status(500).render('error/dev-error', {
         title: 'PacBio - Error',
         class: 'error-body',
-        context: {
-            status: 500,
-            message: err.message,
-            error: err.stack
-        },
-        showDetails: true // app.settings.showErrorDetails
+        context: context,
+        showDetails: true
     });
 });
 var eq = String.equals('foo', 'foo');
