@@ -11,6 +11,8 @@
 /// <reference path="./typings/winston/winston.d.ts" />
 /// <reference path="./typings/lib-ext/lib-ext.d.ts" />
 /// <reference path="./typings/json-fn/json-fn.d.ts" />
+// Load configuration
+global['config'] = require('konfig')();
 var userModel = require("./model/user");
 var user = new userModel.User();
 var bodyParser = require('body-parser');
@@ -42,6 +44,8 @@ app.all('/*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Auth-Token');
     res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
     app.disable('etag');
+    // Set full request URL
+    req.headers['requested-url'] = '%s://%s%s'.sprintf(req.protocol, req.get('host'), req.originalUrl);
     next();
 });
 app.use(favicon('%s/public/img/favicon.png'.sprintf(applicationRoot)));
@@ -64,7 +68,7 @@ app.use('/error/:id', function (req, res, next) {
             throw new error.ForbiddenError();
         case 404:
             throw new error.PageNotFoundError();
-        case 500, isNaN(id) ? 500 : 0:
+        case 500:
             throw new error.InternalServerErrorError();
         case 501:
             throw new error.NotImplementedError();
@@ -79,15 +83,14 @@ app.use(function (req, res) {
     res.sendFile('%s/public/index.html'.sprintf(applicationRoot));
 });
 app.use(function (err, req, res, next) {
-    var context;
-    if (err instanceof error.ServerError) {
-        context = { status: err.getStatus(), message: err.getMessage(), error: err.getStacktrace() };
-    }
-    else {
-        context = { status: err.code, message: err.message, error: err.stack };
-    }
-    res.status(500).render('error/dev-error', {
-        title: 'PacBio - Error',
+    var context = {
+        status: err.status || 500,
+        name: err.name || err.code || error.strings['unknown-name'],
+        message: err.message || error.strings['unknown-message'],
+        error: err.stack || String.EMPTY
+    };
+    res.status(context.status).render('error/dev-error', {
+        title: error.strings['error-title'].sprintf(context.status, context.name),
         class: 'error-body',
         context: context,
         showDetails: true

@@ -12,18 +12,6 @@ var ServerError = (function () {
         this.name = name;
         this.message = message;
     }
-    ServerError.prototype.getStatus = function () {
-        return this.status;
-    };
-    ServerError.prototype.getName = function () {
-        return this.name;
-    };
-    ServerError.prototype.getMessage = function () {
-        return this.message;
-    };
-    ServerError.prototype.getStacktrace = function () {
-        return this.stack;
-    };
     return ServerError;
 })();
 exports.ServerError = ServerError;
@@ -120,5 +108,5 @@ exports.ServiceUnavailableError = ServiceUnavailableError;
 // Hack to ensure ServerError has Error as its prototype (base type). This makes instances of ServerError
 // and all its subclasses instances of Error. This is needed for the stacktrace (stack property) to be
 // populated when an exception is thrown.
-eval("ServerError.prototype.__proto__ = new Error()");
+ServerError.prototype['__proto__'] = new Error();
 //# sourceMappingURL=error.js.map
